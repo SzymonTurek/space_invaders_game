@@ -30,10 +30,10 @@ class Ship():
 
      
     def ship_position(self):
-        if self.moving_right == True:
-            self.rect.centerx += 3
-        elif self.moving_left == True:
-            self.rect.centerx -= 3
+        if self.moving_right == True and self.rect.right < self.screen_rect.right:
+            self.rect.centerx += 5
+        elif self.moving_left == True and self.rect.left > 0:
+            self.rect.centerx -= 5  
         
 
 
