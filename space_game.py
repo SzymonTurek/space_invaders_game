@@ -17,6 +17,8 @@ def run_game():
     running = True
     while running:
         check_typed_keys(ship)
+        ship.ship_position()
+        
         update_screen(ai_settings, screen, ship)
         
         
