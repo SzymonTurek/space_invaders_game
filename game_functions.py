@@ -9,11 +9,17 @@ def check_typed_keys(ship):
                     ship.moving_left = True
                 elif event.key == pygame.K_RIGHT:
                     ship.moving_right = True
+                elif event.key == pygame.K_UP:
+                    ship.moving_up = True
+                elif event.key == pygame.K_DOWN:
+                    ship.moving_down = True
             
             elif event.type == pygame.KEYUP:
                 #if event.type == pygame.K_RIGHT:
                     ship.moving_right = False
                     ship.moving_left = False
+                    ship.moving_up = False
+                    ship.moving_down = False
 
 
 def update_screen(ai_settings, screen, ship):

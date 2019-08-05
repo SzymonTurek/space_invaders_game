@@ -24,6 +24,8 @@ class Ship():
         self.rect.bottom = self.screen_rect.bottom  
         self.moving_right = False
         self.moving_left = False
+        self.moving_up = False
+        self.moving_down = False
     
     def draw_ship(self):
         self.screen.blit(self.image, self.rect)
@@ -33,7 +35,12 @@ class Ship():
         if self.moving_right == True and self.rect.right < self.screen_rect.right:
             self.rect.centerx += 5
         elif self.moving_left == True and self.rect.left > 0:
-            self.rect.centerx -= 5  
+            self.rect.centerx -= 5 
+        elif self.moving_up == True and self.rect.top >0 :
+            self.rect.centery -= 5 
+        elif self.moving_down == True and self.rect.bottom < self.screen_rect.bottom :
+            self.rect.centery += 5 
+
         
 
 
