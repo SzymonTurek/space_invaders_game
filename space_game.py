@@ -12,13 +12,13 @@ def run_game():
     pygame.display.set_caption("Zobmie invasion")
     ship = Ship(screen)
     
+    
 
     running = True
     while running:
-        quit_function()
-        screen.fill(ai_settings.bg_color)
-        ship.draw_ship()
-        pygame.display.flip()
-
+        check_typed_keys(ship)
+        update_screen(ai_settings, screen, ship)
+        
+        
 run_game()
 
