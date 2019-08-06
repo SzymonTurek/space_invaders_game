@@ -1,5 +1,6 @@
 import pygame, sys
 from bullet import Bullet
+from alien import Alien
 
 
 
@@ -30,12 +31,26 @@ def check_typed_keys(ship,ai_settings, screen, bullets):
                     ship.moving_down = False
 
 
-def update_screen(ai_settings, screen, ship, alien, bullets ):
+def update_screen(ai_settings, screen, ship, aliens, bullets ):
     ship.draw_ship()
-    alien.blitme()
+    aliens.draw(screen)
     pygame.display.flip()
     screen.blit(ai_settings.bg, (-300, -200))
     for bullet in bullets.sprites():
         bullet.draw_bullet()
+
+
+def create_fleet(ai_settings, screen, aliens):
+    alien = Alien(ai_settings, screen)
+    alien_width = alien.rect.width
+    available_space_x = ai_settings.screen_width - 2 * alien_width
+    number_aliens_x = int(available_space_x / (2 * alien_width))
+    # Create the first row of aliens.
+    for alien_number in range(number_aliens_x):
+    # Create an alien and place it in the row.
+        alien = Alien(ai_settings, screen)
+        alien.x = alien_width + 2 * alien_width * alien_number
+        alien.rect.x = alien.x
+        aliens.add(alien)
 
     

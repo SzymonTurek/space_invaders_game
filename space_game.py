@@ -10,17 +10,18 @@ def run_game():
     ai_settings = Settings()
     screen = pygame.display.set_mode(
         (ai_settings.screen_width, ai_settings.screen_height))
-    pygame.display.set_caption("Zobmie invasion")
+    pygame.display.set_caption("UFO invasion")
     ship = Ship(screen)
     bullets = Group()
-    alien = Alien(ai_settings, screen)
-
+    aliens = Group()
+    #alien = Alien(ai_settings, screen)
+    create_fleet(ai_settings, screen, aliens)
     running = True
     while running:
         check_typed_keys(ship, ai_settings,screen, bullets)
         ship.ship_position()
         
-        update_screen(ai_settings, screen, ship, alien, bullets)
+        update_screen(ai_settings, screen, ship, aliens, bullets)
         bullets.update()
 
         # Get rid of bullets that have disappeared.
